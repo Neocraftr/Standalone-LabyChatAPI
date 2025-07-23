@@ -1,8 +1,8 @@
 package de.neocraftr.labychatapi.user;
 
 public class ServerInfo {
-    private String serverIp;
-    private int serverPort;
+    private String serverIp = "";
+    private int serverPort = 0;
     private String specifiedServerName;
 
     public ServerInfo(String serverIp, int serverPort, String specifiedServerName) {
@@ -14,7 +14,9 @@ public class ServerInfo {
     public ServerInfo(String serverIp, int serverPort) {
         this.serverIp = serverIp;
         this.serverPort = serverPort;
-        this.specifiedServerName = null;
+    }
+
+    public ServerInfo() {
     }
 
     public boolean isServerAvailable() {
@@ -44,5 +46,14 @@ public class ServerInfo {
 
     public String getSpecifiedServerName() {
         return this.specifiedServerName;
+    }
+
+    @Override
+    public String toString() {
+        return "ServerInfo{" +
+                "serverIp='" + serverIp + '\'' +
+                ", serverPort=" + serverPort +
+                ", specifiedServerName='" + specifiedServerName + '\'' +
+                '}';
     }
 }

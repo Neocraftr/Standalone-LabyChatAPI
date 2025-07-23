@@ -6,6 +6,9 @@ LabyChatClient chatClient = new LabyChatClient(new PacketHandler() {
     @Override
     public void handle(PacketMessage packet) {
         System.out.println(String.format("Received message from %s: %s", packet.getSender().getGameProfile().getName(), packet.getMessage()));
+        
+        // Echo message back to sender
+        chatClient.sendChatMessage(packet.getSender(), packet.getMessage());
     }
 });
 

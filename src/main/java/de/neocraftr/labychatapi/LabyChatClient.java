@@ -7,6 +7,7 @@ import de.neocraftr.labychatapi.handeling.PacketHandler;
 import de.neocraftr.labychatapi.packets.Packet;
 import de.neocraftr.labychatapi.packets.PacketDisconnect;
 import de.neocraftr.labychatapi.packets.PacketHelloPing;
+import de.neocraftr.labychatapi.packets.PacketMessage;
 import de.neocraftr.labychatapi.user.ChatUser;
 import de.neocraftr.labychatapi.utils.CryptManager;
 import io.netty.bootstrap.Bootstrap;
@@ -150,4 +151,12 @@ public class LabyChatClient {
     public ConnectCallback getConnectCallback() {
         return connectCallback;
     }
+
+
+    public void sendChatMessage(ChatUser to, String msg) {
+        PacketMessage packet = new PacketMessage(user, to, msg, 0, 0, System.currentTimeMillis());
+        sendPacket(packet);
+    }
+
+    // TODO: Add methods for more LabyMod features
 }

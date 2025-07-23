@@ -4,10 +4,10 @@ import com.mojang.authlib.GameProfile;
 
 public class ChatUser {
     private GameProfile gameProfile;
-    private UserStatus status;
-    private String statusMessage;
+    private UserStatus status = UserStatus.OFFLINE;
+    private String statusMessage = "";
     private ServerInfo currentServerInfo;
-    private String timeZone;
+    private String timeZone = "";
     private long lastOnline;
     private long firstJoined;
     private int contactAmount;
@@ -73,6 +73,10 @@ public class ChatUser {
         this.statusMessage = statusMessage;
     }
 
+    public ChatUser(GameProfile gameProfile) {
+        this.gameProfile = gameProfile;
+    }
+
     public void setGameProfile(GameProfile gameProfile) {
         this.gameProfile = gameProfile;
     }
@@ -103,5 +107,19 @@ public class ChatUser {
 
     public void setContactAmount(int contactAmount) {
         this.contactAmount = contactAmount;
+    }
+
+    @Override
+    public String toString() {
+        return "ChatUser{" +
+                "gameProfile=" + gameProfile +
+                ", status=" + status +
+                ", statusMessage='" + statusMessage + '\'' +
+                ", currentServerInfo=" + currentServerInfo +
+                ", timeZone='" + timeZone + '\'' +
+                ", lastOnline=" + lastOnline +
+                ", firstJoined=" + firstJoined +
+                ", contactAmount=" + contactAmount +
+                '}';
     }
 }
