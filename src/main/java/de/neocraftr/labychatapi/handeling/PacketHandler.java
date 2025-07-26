@@ -41,7 +41,7 @@ public class PacketHandler extends SimpleChannelInboundHandler<Object> {
         GameProfile userProfile = this.client.getUser().getGameProfile();
         this.client.sendPacket(new PacketLoginData(userProfile.getId(), userProfile.getName(), this.client.getUser().getStatusMessage()));
         this.client.sendPacket(new PacketLoginOptions(true, this.client.getUser().getStatus(), Calendar.getInstance().getTimeZone()));
-        this.client.sendPacket(new PacketLoginVersion(24, "1.8.9_3.8.5"));
+        this.client.sendPacket(new PacketLoginVersion(24, "1.8.9_4.0.11"));
     }
 
     public void handle(PacketLoginStart packet) {}
